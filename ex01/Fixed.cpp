@@ -1,29 +1,39 @@
-#include "Fixed.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/27 22:53:27 by mouarsas          #+#    #+#             */
+/*   Updated: 2023/01/27 22:58:06 by mouarsas         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-const int   Fixed::nbr = 8;
+#include "Fixed.hpp"
 
 Fixed::Fixed()
 {
-    this->content = 0;
+    this->fixed_point = 0;
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed &_content)
+Fixed::Fixed(const Fixed &obg)
 {
 	std::cout << "Copy constructor called" << std::endl;
-    *this = _content;
+    *this = obg;
 }
 
-Fixed::Fixed(const int fix)
+Fixed::Fixed(const int i)
 {
 	std::cout << "Int constructor called" << std::endl;
-    this->content = fix << nbr;
+    this->fixed_point = i << i_shifting;
 }
 
-Fixed::Fixed(const float fix)
+Fixed::Fixed(const float i)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->content = (int)roundf(fix * (1  << nbr));
+	this->fixed_point = (int)roundf(i * (1  << i_shifting));
 }
 
 Fixed::~Fixed()
@@ -31,31 +41,31 @@ Fixed::~Fixed()
     std::cout << "Destructor called" << std::endl;
 }
 
-Fixed &Fixed::operator=(const Fixed &fixed_var)
+Fixed &Fixed::operator=(const Fixed &obg)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	content = fixed_var.content;
+	fixed_point = obg.fixed_point;
 	return *this;
 }
 
 void Fixed::setRawBits(int const raw)
 {
-    this->content = raw;
+    this->fixed_point = raw;
 }
 
 int Fixed::getRawBits() const
 {
-	return content;
+	return fixed_point;
 }
 
 float Fixed::toFloat( void ) const
 {
-	return ((float)(content) / (1 << nbr));
+	return ((float)(fixed_point) / (1 << i_shifting));
 }
 
 int Fixed::toInt( void ) const
 {
-	return ( content >> nbr);
+	return ( fixed_point >> i_shifting);
 }
 
 std::ostream &operator<<(std::ostream &output, const Fixed &FixedP)

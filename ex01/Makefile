@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/01/27 22:58:46 by mouarsas          #+#    #+#              #
+#    Updated: 2023/01/27 23:06:29 by mouarsas         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = Fixed
 FLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS =  Fixed.cpp \
@@ -13,5 +25,4 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-
 re : fclean all
