@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 22:51:29 by mouarsas          #+#    #+#             */
-/*   Updated: 2023/01/28 20:36:27 by mouarsas         ###   ########.fr       */
+/*   Updated: 2023/01/29 17:44:24 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ public:
     Fixed operator--(int);
     Fixed& operator--();
     static Fixed min(Fixed &var, Fixed &var1);
-    static Fixed min(const Fixed& var, const Fixed &var1);
+    static const Fixed min(const Fixed& var, const Fixed &var1);
     static Fixed max(Fixed &var, Fixed &var1);
-    static Fixed max(const Fixed& var, const Fixed &var1);
+    static const Fixed max(const Fixed& var, const Fixed &var1);
 };
 
 std::ostream &operator<<(std::ostream &output, Fixed const &FixedP);

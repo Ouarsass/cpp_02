@@ -6,7 +6,7 @@
 #    By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/27 22:58:46 by mouarsas          #+#    #+#              #
-#    Updated: 2023/01/27 23:06:29 by mouarsas         ###   ########.fr        #
+#    Updated: 2023/01/29 17:33:29 by mouarsas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,6 @@ $(NAME) : $(OBJS)
 	c++ $(FLAGS) -c $< -o $@
 clean:
 	rm -f $(OBJS)
-
 fclean: clean
 	rm -f $(NAME)
 re : fclean all

@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 22:53:27 by mouarsas          #+#    #+#             */
-/*   Updated: 2023/01/28 20:38:14 by mouarsas         ###   ########.fr       */
+/*   Updated: 2023/01/29 17:49:43 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ Fixed::Fixed(const float i)
 Fixed::~Fixed(){}
 Fixed &Fixed::operator=(const Fixed &obg)
 {
-	fixed_point = obg.fixed_point;
+	if (this != &obg)
+		fixed_point = obg.fixed_point;
 	return *this;
 }
 
@@ -90,7 +91,9 @@ Fixed Fixed::operator-(const Fixed &obg)
 }
 Fixed Fixed::operator/(const Fixed &obg)
 {
-    return (Fixed(toFloat() / obg.toFloat()));
+	if (obg.toFloat() != 0)
+    	return (Fixed(toFloat() / obg.toFloat()));
+	return Fixed();
 }
 Fixed Fixed::operator++(int)
 {
@@ -120,7 +123,7 @@ Fixed Fixed::min(Fixed &var,Fixed &var1)
 		return (var);
 	return (var1);
 }
-Fixed Fixed::min(const Fixed &var, const Fixed &var1)
+Fixed const Fixed::min(const Fixed &var, const Fixed &var1)
 {
 	if (var < var1)
 		return (var);
@@ -132,7 +135,7 @@ Fixed Fixed::max(Fixed &var,Fixed &var1)
 		return (var);
 	return (var1);
 }
-Fixed Fixed::max(const Fixed &var, const Fixed &var1)
+Fixed const Fixed::max(const Fixed &var, const Fixed &var1)
 {
 	if (var > var1)
 		return (var);
