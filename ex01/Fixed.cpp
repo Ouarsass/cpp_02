@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 22:53:27 by mouarsas          #+#    #+#             */
-/*   Updated: 2023/01/27 22:58:06 by mouarsas         ###   ########.fr       */
+/*   Updated: 2023/01/29 17:41:39 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ Fixed::~Fixed()
 Fixed &Fixed::operator=(const Fixed &obg)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	fixed_point = obg.fixed_point;
+	if (this != &obg)
+		fixed_point = obg.fixed_point;
+
 	return *this;
 }
 
